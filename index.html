@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shooter</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: #0b0d10;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      /*
+       * The canvas has a fixed internal resolution of 960x540 (set below).
+       * CSS only scales the displayed size to fit the window while keeping
+       * the 16:9 aspect ratio, so the game always renders at the same pixels.
+       */
+      canvas {
+        display: block;
+        width: min(100vw, calc(100vh * 16 / 9));
+        height: min(100vh, calc(100vw * 9 / 16));
+        background: #14171c;
+        cursor: none; /* the game draws its own crosshair */
+        box-shadow: 0 0 0 1px #2a2f38, 0 20px 60px rgba(0, 0, 0, 0.6);
+        touch-action: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="game" width="960" height="540" aria-label="Top-down shooter"></canvas>
+    <script src="game.js" defer></script>
+  </body>
+</html>
